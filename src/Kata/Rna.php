@@ -2,7 +2,7 @@
 
 namespace Kata;
 
-class Dna
+class Rna
 {
     private $strand;
 

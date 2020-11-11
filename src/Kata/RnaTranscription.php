@@ -4,11 +4,14 @@ namespace Kata;
 
 class RnaTranscription
 {
-    public function handle(Dna $dna): Dna
+    private $adapter = [
+        'G' => 'C',
+        'C' => 'G',
+        'T' => 'A',
+        'A' => 'U',
+    ];
+    public function handle(Dna $dna): Rna
     {
-        if ($dna->equals(new Dna('C'))){
-            return new Dna('G');
-        }
-        return new Dna('C');
+        return new Rna($this->adapter[$dna->strand()]);
     }
 }

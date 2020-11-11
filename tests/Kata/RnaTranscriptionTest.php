@@ -18,15 +18,28 @@ class RnaTranscriptionTest extends TestCase
     {
         $actual = $this->rnaTranscription->handle(new Dna('G'));
 
-        $this->assertEquals(new Dna('C'), $actual);
+        $this->assertEquals(new Rna('C'), $actual);
     }
-
 
     public function testDnaCIsTranscribedToRnaG(): void
     {
         $actual = $this->rnaTranscription->handle(new Dna('C'));
 
-        $this->assertEquals(new Dna('G'), $actual);
+        $this->assertEquals(new Rna('G'), $actual);
+    }
+
+    public function testDnaTIsTranscribedToRnaA(): void
+    {
+        $actual = $this->rnaTranscription->handle(new Dna('T'));
+
+        $this->assertEquals(new Rna('A'), $actual);
+    }
+
+    public function testDnaaIsTranscribedToRnaU(): void
+    {
+        $actual = $this->rnaTranscription->handle(new Dna('A'));
+
+        $this->assertEquals(new Rna('U'), $actual);
     }
 
 }
