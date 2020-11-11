@@ -2,7 +2,7 @@
 
 namespace Kata;
 
-class Index
+class RnaTranscription
 {
     public function handle(): bool
     {

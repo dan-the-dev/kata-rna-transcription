@@ -3,13 +3,15 @@
 namespace Kata;
 
 use PHPUnit\Framework\TestCase;
-use Kata\Index;
+use Kata\RnaTranscription;
 
-class IndexTest extends TestCase
+class RnaTranscriptionTest extends TestCase
 {
+    private RnaTranscription $rnaTranscription;
+
     protected function setUp(): void
     {
-        $this->index = new Index();
+        $this->rnaTranscription = new RnaTranscription();
     }
 
     public function testShallPass(): void
@@ -19,6 +21,6 @@ class IndexTest extends TestCase
 
     public function testHandleReturnTrue(): void
     {
-        $this->assertEquals(true, $this->index->handle());
+        $this->assertEquals(true, $this->rnaTranscription->handle());
     }
 }
