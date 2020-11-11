@@ -4,14 +4,15 @@ namespace Kata;
 
 class RnaTranscription
 {
-    private $adapter = [
-        'G' => 'C',
-        'C' => 'G',
-        'T' => 'A',
-        'A' => 'U',
-    ];
-    public function handle(Dna $dna): Rna
+    private $rnaFactory;
+
+    public function __construct(RnaFactory $rnaFactory)
     {
-        return new Rna($this->adapter[$dna->strand()]);
+        $this->rnaFactory = $rnaFactory;
+    }
+
+    public function toRna(Dna $dna): Rna
+    {
+        return $this->rnaFactory->fromDna($dna);
     }
 }

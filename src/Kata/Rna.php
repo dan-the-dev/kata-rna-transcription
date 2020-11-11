@@ -6,13 +6,8 @@ class Rna
 {
     private $strand;
 
-    public function __construct(string $strand)
+    public function __construct(Strand $strand)
     {
         $this->strand = $strand;
-    }
-
-    public function strand(): string
-    {
-        return $this->strand;
     }
 }

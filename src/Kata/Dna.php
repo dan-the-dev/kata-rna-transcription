@@ -6,13 +6,13 @@ class Dna
 {
     private $strand;
 
-    public function __construct(string $strand)
+    public function __construct(Strand $strand)
     {
         $this->strand = $strand;
     }
 
-    public function strand(): string
+    public function nucleotides(): array
     {
-        return $this->strand;
+        return $this->strand->nucleotides();
     }
 }
