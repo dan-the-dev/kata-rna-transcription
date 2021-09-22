@@ -11,7 +11,7 @@ class RnaTranscription
     {
         $rnaStrand = new RnaStrand();
         /** @var DnaNucleotide $dnaNucleotide */
-        foreach ($dnaStrand->strand as $dnaNucleotide) {
+        foreach ($dnaStrand->all() as $dnaNucleotide) {
             $rnaStrand->add($this->transcribeNucleotide($dnaNucleotide));
         }
         return $rnaStrand;

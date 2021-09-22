@@ -27,4 +27,10 @@ class RnaStrand
     {
         array_push($this->strand, $rnaNucleotide);
     }
+
+    /** @return RnaNucleotide[] */
+    public function all(): array
+    {
+        return $this->strand;
+    }
 }

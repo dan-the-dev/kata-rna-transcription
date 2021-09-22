@@ -5,7 +5,7 @@ namespace Kata;
 class DnaStrand
 {
     /** @var DnaNucleotide[] $strand */
-    public $strand;
+    private $strand;
 
     public function __construct(DnaNucleotide ...$strand)
     {
@@ -21,5 +21,16 @@ class DnaStrand
             }
         }
         return true;
+    }
+
+    public function add(DnaNucleotide $dnaNucleotide): void
+    {
+        array_push($this->strand, $dnaNucleotide);
+    }
+
+    /** @return DnaNucleotide[] */
+    public function all(): array
+    {
+        return $this->strand;
     }
 }
