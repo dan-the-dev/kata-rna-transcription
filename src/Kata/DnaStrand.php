@@ -4,6 +4,7 @@ namespace Kata;
 
 class DnaStrand
 {
+    const ADENINE = 'A';
     const CYTOSINE = 'C';
     const GUANINE = 'G';
     const THYMINE = 'T';
@@ -14,6 +15,11 @@ class DnaStrand
     private function __construct(string $strand)
     {
         $this->strand = $strand;
+    }
+
+    public static function adenine(): DnaStrand
+    {
+        return new DnaStrand(self::ADENINE);
     }
 
     public static function cytosine(): DnaStrand

@@ -13,6 +13,9 @@ class RnaTranscription
         if ($dnaStrand->equals(DnaStrand::thymine())) {
             return RnaStrand::adenine();
         }
+        if ($dnaStrand->equals(DnaStrand::adenine())) {
+            return RnaStrand::uracil();
+        }
         return RnaStrand::cytosine();
     }
 }

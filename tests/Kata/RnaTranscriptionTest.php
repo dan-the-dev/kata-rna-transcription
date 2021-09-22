@@ -17,16 +17,33 @@ class RnaTranscriptionTest extends TestCase
 
     public function testDnaStrandWithDnaNucleotideGIsTransformedInRnaNucleotideC(): void
     {
-        $this->assertEquals(RnaStrand::cytosine(), $this->rnaTranscription->transcribe(DnaStrand::guanine()));
+        $actual = $this->rnaTranscription->transcribe(DnaStrand::guanine());
+        $expected = RnaStrand::cytosine();
+
+        $this->assertEquals($expected, $actual);
     }
 
     public function testDnaStrandWithDnaNucleotideCIsTransformedInRnaNucleotideG(): void
     {
-        $this->assertEquals(RnaStrand::guanine(), $this->rnaTranscription->transcribe(DnaStrand::cytosine()));
+        $actual = $this->rnaTranscription->transcribe(DnaStrand::cytosine());
+        $expected = RnaStrand::guanine();
+
+        $this->assertEquals($expected, $actual);
     }
 
     public function testDnaStrandWithDnaNucleotideTIsTransformedInRnaNucleotideA(): void
     {
-        $this->assertEquals(RnaStrand::adenine(), $this->rnaTranscription->transcribe(DnaStrand::thymine()));
+        $actual = $this->rnaTranscription->transcribe(DnaStrand::thymine());
+        $expected = RnaStrand::adenine();
+
+        $this->assertEquals($expected, $actual);
+    }
+
+    public function testDnaStrandWithDnaNucleotideAIsTransformedInRnaNucleotideU(): void
+    {
+        $actual = $this->rnaTranscription->transcribe(DnaStrand::adenine());
+        $expected = RnaStrand::uracil();
+
+        $this->assertEquals($expected, $actual);
     }
 }
