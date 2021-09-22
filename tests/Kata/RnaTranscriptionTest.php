@@ -17,16 +17,16 @@ class RnaTranscriptionTest extends TestCase
 
     public function testDnaStrandWithDnaNucleotideGIsTransformedInRnaNucleotideC(): void
     {
-        $this->assertSame('C', $this->rnaTranscription->transcribe(DnaStrand::guanine()));
+        $this->assertEquals(RnaStrand::cytosine(), $this->rnaTranscription->transcribe(DnaStrand::guanine()));
     }
 
     public function testDnaStrandWithDnaNucleotideCIsTransformedInRnaNucleotideG(): void
     {
-        $this->assertSame('G', $this->rnaTranscription->transcribe(DnaStrand::cytosine()));
+        $this->assertEquals(RnaStrand::guanine(), $this->rnaTranscription->transcribe(DnaStrand::cytosine()));
     }
 
     public function testDnaStrandWithDnaNucleotideTIsTransformedInRnaNucleotideA(): void
     {
-        $this->assertSame('A', $this->rnaTranscription->transcribe(DnaStrand::thymine()));
+        $this->assertEquals(RnaStrand::adenine(), $this->rnaTranscription->transcribe(DnaStrand::thymine()));
     }
 }
