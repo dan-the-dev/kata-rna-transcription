@@ -15,6 +15,9 @@ class RnaTranscriptionTest extends TestCase
         $this->rnaTranscription = new RnaTranscription();
     }
 
+    /**
+     * @throws UnknownDnaNucleotideException
+     */
     public function testDnaStrandWithDnaNucleotideGIsTransformedInRnaNucleotideC(): void
     {
         $actual = $this->rnaTranscription->transcribeDnaToRna(DnaStrand::guanine());
@@ -23,6 +26,9 @@ class RnaTranscriptionTest extends TestCase
         $this->assertEquals($expected, $actual);
     }
 
+    /**
+     * @throws UnknownDnaNucleotideException
+     */
     public function testDnaStrandWithDnaNucleotideCIsTransformedInRnaNucleotideG(): void
     {
         $actual = $this->rnaTranscription->transcribeDnaToRna(DnaStrand::cytosine());
@@ -31,6 +37,9 @@ class RnaTranscriptionTest extends TestCase
         $this->assertEquals($expected, $actual);
     }
 
+    /**
+     * @throws UnknownDnaNucleotideException
+     */
     public function testDnaStrandWithDnaNucleotideTIsTransformedInRnaNucleotideA(): void
     {
         $actual = $this->rnaTranscription->transcribeDnaToRna(DnaStrand::thymine());
@@ -39,6 +48,9 @@ class RnaTranscriptionTest extends TestCase
         $this->assertEquals($expected, $actual);
     }
 
+    /**
+     * @throws UnknownDnaNucleotideException
+     */
     public function testDnaStrandWithDnaNucleotideAIsTransformedInRnaNucleotideU(): void
     {
         $actual = $this->rnaTranscription->transcribeDnaToRna(DnaStrand::adenine());

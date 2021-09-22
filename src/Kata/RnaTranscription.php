@@ -4,6 +4,9 @@ namespace Kata;
 
 class RnaTranscription
 {
+    /**
+     * @throws UnknownDnaNucleotideException
+     */
     public function transcribeDnaToRna(DnaStrand $dnaStrand): RnaStrand
     {
         if ($dnaStrand->equals(DnaStrand::cytosine())) {
@@ -18,5 +21,7 @@ class RnaTranscription
         if ($dnaStrand->equals(DnaStrand::guanine())) {
             return RnaStrand::cytosine();
         }
+        throw new UnknownDnaNucleotideException();
     }
 }
+
