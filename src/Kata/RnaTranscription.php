@@ -7,10 +7,10 @@ class RnaTranscription
 
     public function transcribe(DnaStrand $dnaStrand): string
     {
-        if ($dnaStrand->equals(new DnaStrand('C'))) {
+        if ($dnaStrand->equals(DnaStrand::cytosine())) {
             return 'G';
         }
-        if ($dnaStrand->equals(new DnaStrand('T'))) {
+        if ($dnaStrand->equals(DnaStrand::thymine())) {
             return 'A';
         }
         return 'C';
