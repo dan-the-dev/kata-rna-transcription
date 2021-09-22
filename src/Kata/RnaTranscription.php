@@ -9,17 +9,32 @@ class RnaTranscription
      */
     public function transcribeDnaToRna(DnaStrand $dnaStrand): RnaStrand
     {
-        if ($dnaStrand->equals(new DnaStrand(DnaNucleotide::cytosine()))) {
-            return new RnaStrand(RnaNucleotide::guanine());
+        $rnaStrand = new RnaStrand();
+        /** @var DnaNucleotide $dnaNucleotide */
+        foreach ($dnaStrand->strand as $dnaNucleotide) {
+            $rnaStrand->add($this->transcribeNucleotide($dnaNucleotide));
         }
-        if ($dnaStrand->equals(new DnaStrand(DnaNucleotide::thymine()))) {
-            return new RnaStrand(RnaNucleotide::adenine());
+        return $rnaStrand;
+    }
+
+    /**
+     * @param DnaStrand $dnaStrand
+     * @return RnaStrand
+     * @throws UnknownDnaNucleotideException
+     */
+    private function transcribeNucleotide(DnaNucleotide $dnaNucleotide): RnaNucleotide
+    {
+        if ($dnaNucleotide->equals(DnaNucleotide::cytosine())) {
+            return RnaNucleotide::guanine();
         }
-        if ($dnaStrand->equals(new DnaStrand(DnaNucleotide::adenine()))) {
-            return new RnaStrand(RnaNucleotide::uracil());
+        if ($dnaNucleotide->equals(DnaNucleotide::thymine())) {
+            return RnaNucleotide::adenine();
         }
-        if ($dnaStrand->equals(new DnaStrand(DnaNucleotide::guanine()))) {
-            return new RnaStrand(RnaNucleotide::cytosine());
+        if ($dnaNucleotide->equals(DnaNucleotide::adenine())) {
+            return RnaNucleotide::uracil();
+        }
+        if ($dnaNucleotide->equals(DnaNucleotide::guanine())) {
+            return RnaNucleotide::cytosine();
         }
         throw new UnknownDnaNucleotideException();
     }

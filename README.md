@@ -26,4 +26,5 @@ Run tests: `vendor/phpunit/phpunit/phpunit tests`
 - [x] 'C' -> 'G'
 - [x] 'T' -> 'A'
 - [x] 'A' -> 'U'
-- [ ] **'GCTA' -> 'CGAU'**
+- [ ] **'GC' -> 'CG'**
+- [ ] 'GCTA' -> 'CGAU'

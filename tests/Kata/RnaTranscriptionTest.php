@@ -53,7 +53,7 @@ class RnaTranscriptionTest extends TestCase
      */
     public function testDnaStrandWithDnaNucleotideAIsTransformedInRnaNucleotideU(): void
     {
-        $actual = $this->rnaTranscription->transcribeDnaToRna(new DnaStrand(DnaNucleotide::adenine(), DnaNucleotide::adenine()));
+        $actual = $this->rnaTranscription->transcribeDnaToRna(new DnaStrand(DnaNucleotide::adenine()));
         $expected = new RnaStrand(RnaNucleotide::uracil());
 
         $this->assertEquals($expected, $actual);

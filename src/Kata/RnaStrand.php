@@ -22,4 +22,9 @@ class RnaStrand
         }
         return true;
     }
+
+    public function add(RnaNucleotide $rnaNucleotide): void
+    {
+        array_push($this->strand, $rnaNucleotide);
+    }
 }

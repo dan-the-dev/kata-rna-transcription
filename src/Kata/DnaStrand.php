@@ -5,7 +5,7 @@ namespace Kata;
 class DnaStrand
 {
     /** @var DnaNucleotide[] $strand */
-    private $strand;
+    public $strand;
 
     public function __construct(DnaNucleotide ...$strand)
     {
