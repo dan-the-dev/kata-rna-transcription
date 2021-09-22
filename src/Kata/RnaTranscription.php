@@ -10,6 +10,9 @@ class RnaTranscription
         if ($dnaStrand === 'C') {
             return 'G';
         }
+        if ($dnaStrand === 'T') {
+            return 'A';
+        }
         return 'C';
     }
 }
