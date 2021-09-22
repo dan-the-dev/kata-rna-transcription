@@ -5,12 +5,12 @@ namespace Kata;
 class RnaTranscription
 {
 
-    public function transcribe(string $dnaStrand): string
+    public function transcribe(DnaStrand $dnaStrand): string
     {
-        if ($dnaStrand === 'C') {
+        if ($dnaStrand->equals(new DnaStrand('C'))) {
             return 'G';
         }
-        if ($dnaStrand === 'T') {
+        if ($dnaStrand->equals(new DnaStrand('T'))) {
             return 'A';
         }
         return 'C';
