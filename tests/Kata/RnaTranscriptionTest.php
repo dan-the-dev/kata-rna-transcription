@@ -58,4 +58,26 @@ class RnaTranscriptionTest extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
+
+    /**
+     * @throws UnknownDnaNucleotideException
+     */
+    public function testDnaStrandWithDnaNucleotideGCIsTransformedInRnaNucleotideCG(): void
+    {
+        $actual = $this->rnaTranscription->transcribeDnaToRna(new DnaStrand(DnaNucleotide::guanine(), DnaNucleotide::cytosine()));
+        $expected = new RnaStrand(RnaNucleotide::cytosine(), RnaNucleotide::guanine());
+
+        $this->assertEquals($expected, $actual);
+    }
+
+    /**
+     * @throws UnknownDnaNucleotideException
+     */
+    public function testDnaStrandWithDnaNucleotideGCTAIsTransformedInRnaNucleotideCGAU(): void
+    {
+        $actual = $this->rnaTranscription->transcribeDnaToRna(new DnaStrand(DnaNucleotide::guanine(), DnaNucleotide::cytosine(), DnaNucleotide::thymine(), DnaNucleotide::adenine()));
+        $expected = new RnaStrand(RnaNucleotide::cytosine(), RnaNucleotide::guanine(), RnaNucleotide::adenine(), RnaNucleotide::uracil());
+
+        $this->assertEquals($expected, $actual);
+    }
 }
