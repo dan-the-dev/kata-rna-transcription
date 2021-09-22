@@ -9,17 +9,17 @@ class RnaTranscription
      */
     public function transcribeDnaToRna(DnaStrand $dnaStrand): RnaStrand
     {
-        if ($dnaStrand->equals(DnaStrand::cytosine())) {
-            return RnaStrand::guanine();
+        if ($dnaStrand->equals(new DnaStrand(DnaNucleotide::cytosine()))) {
+            return new RnaStrand(RnaNucleotide::guanine());
         }
-        if ($dnaStrand->equals(DnaStrand::thymine())) {
-            return RnaStrand::adenine();
+        if ($dnaStrand->equals(new DnaStrand(DnaNucleotide::thymine()))) {
+            return new RnaStrand(RnaNucleotide::adenine());
         }
-        if ($dnaStrand->equals(DnaStrand::adenine())) {
-            return RnaStrand::uracil();
+        if ($dnaStrand->equals(new DnaStrand(DnaNucleotide::adenine()))) {
+            return new RnaStrand(RnaNucleotide::uracil());
         }
-        if ($dnaStrand->equals(DnaStrand::guanine())) {
-            return RnaStrand::cytosine();
+        if ($dnaStrand->equals(new DnaStrand(DnaNucleotide::guanine()))) {
+            return new RnaStrand(RnaNucleotide::cytosine());
         }
         throw new UnknownDnaNucleotideException();
     }

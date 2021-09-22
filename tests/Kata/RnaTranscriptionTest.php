@@ -20,8 +20,8 @@ class RnaTranscriptionTest extends TestCase
      */
     public function testDnaStrandWithDnaNucleotideGIsTransformedInRnaNucleotideC(): void
     {
-        $actual = $this->rnaTranscription->transcribeDnaToRna(DnaStrand::guanine());
-        $expected = RnaStrand::cytosine();
+        $actual = $this->rnaTranscription->transcribeDnaToRna(new DnaStrand(DnaNucleotide::guanine()));
+        $expected = new RnaStrand(RnaNucleotide::cytosine());
 
         $this->assertEquals($expected, $actual);
     }
@@ -31,8 +31,8 @@ class RnaTranscriptionTest extends TestCase
      */
     public function testDnaStrandWithDnaNucleotideCIsTransformedInRnaNucleotideG(): void
     {
-        $actual = $this->rnaTranscription->transcribeDnaToRna(DnaStrand::cytosine());
-        $expected = RnaStrand::guanine();
+        $actual = $this->rnaTranscription->transcribeDnaToRna(new DnaStrand(DnaNucleotide::cytosine()));
+        $expected = new RnaStrand(RnaNucleotide::guanine());
 
         $this->assertEquals($expected, $actual);
     }
@@ -42,8 +42,8 @@ class RnaTranscriptionTest extends TestCase
      */
     public function testDnaStrandWithDnaNucleotideTIsTransformedInRnaNucleotideA(): void
     {
-        $actual = $this->rnaTranscription->transcribeDnaToRna(DnaStrand::thymine());
-        $expected = RnaStrand::adenine();
+        $actual = $this->rnaTranscription->transcribeDnaToRna(new DnaStrand(DnaNucleotide::thymine()));
+        $expected = new RnaStrand(RnaNucleotide::adenine());
 
         $this->assertEquals($expected, $actual);
     }
@@ -53,8 +53,8 @@ class RnaTranscriptionTest extends TestCase
      */
     public function testDnaStrandWithDnaNucleotideAIsTransformedInRnaNucleotideU(): void
     {
-        $actual = $this->rnaTranscription->transcribeDnaToRna(DnaStrand::adenine());
-        $expected = RnaStrand::uracil();
+        $actual = $this->rnaTranscription->transcribeDnaToRna(new DnaStrand(DnaNucleotide::adenine(), DnaNucleotide::adenine()));
+        $expected = new RnaStrand(RnaNucleotide::uracil());
 
         $this->assertEquals($expected, $actual);
     }

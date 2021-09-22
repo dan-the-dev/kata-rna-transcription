@@ -4,41 +4,22 @@ namespace Kata;
 
 class RnaStrand
 {
-    const ADENINE = 'A';
-    const CYTOSINE = 'C';
-    const GUANINE = 'G';
-    const URACIL = 'U';
-
-    /** @var string $strand */
+    /** @var RnaNucleotide[] $strand */
     private $strand;
 
-    private function __construct(string $strand)
+    public function __construct(RnaNucleotide ...$strand)
     {
         $this->strand = $strand;
     }
 
-    public static function adenine(): RnaStrand
-    {
-        return new RnaStrand(self::ADENINE);
-    }
-
-    public static function cytosine(): RnaStrand
-    {
-        return new RnaStrand(self::CYTOSINE);
-    }
-
-    public static function guanine(): RnaStrand
-    {
-        return new RnaStrand(self::GUANINE);
-    }
-
-    public static function uracil(): RnaStrand
-    {
-        return new RnaStrand(self::URACIL);
-    }
-
     public function equals(RnaStrand $anotherDnaStrand): bool
     {
-        return $this->strand === $anotherDnaStrand->strand;
+        /** @var RnaNucleotide $dnaNucleotide */
+        foreach ($anotherDnaStrand->strand as $k => $anotherDnaNucleotide) {
+            if (!$this->strand[$k]->equals($anotherDnaNucleotide)){
+                return false;
+            }
+        }
+        return true;
     }
 }
