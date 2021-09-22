@@ -11,7 +11,7 @@ class DnaStrand
     /** @var string $strand */
     private $strand;
 
-    public function __construct(string $strand)
+    private function __construct(string $strand)
     {
         $this->strand = $strand;
     }
