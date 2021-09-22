@@ -4,8 +4,7 @@ namespace Kata;
 
 class RnaTranscription
 {
-
-    public function transcribe(DnaStrand $dnaStrand): RnaStrand
+    public function transcribeDnaToRna(DnaStrand $dnaStrand): RnaStrand
     {
         if ($dnaStrand->equals(DnaStrand::cytosine())) {
             return RnaStrand::guanine();
@@ -16,6 +15,8 @@ class RnaTranscription
         if ($dnaStrand->equals(DnaStrand::adenine())) {
             return RnaStrand::uracil();
         }
-        return RnaStrand::cytosine();
+        if ($dnaStrand->equals(DnaStrand::guanine())) {
+            return RnaStrand::cytosine();
+        }
     }
 }
