@@ -24,4 +24,9 @@ class RnaTranscriptionTest extends TestCase
     {
         $this->assertSame('G', $this->rnaTranscription->transcribe('C'));
     }
+
+    public function testDnaStrandWithDnaNucleotideTIsTransformedInRnaNucleotideA(): void
+    {
+        $this->assertSame('A', $this->rnaTranscription->transcribe('T'));
+    }
 }
