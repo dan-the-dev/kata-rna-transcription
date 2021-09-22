@@ -17,3 +17,13 @@ C -> G
 T -> A
 A -> U
 __
+
+## Test list
+
+Run tests: `vendor/phpunit/phpunit/phpunit tests`
+
+- [ ] **'G' -> 'C'**
+- [ ] 'C' -> 'G'
+- [ ] 'T' -> 'A'
+- [ ] 'A' -> 'U'
+- [ ] 'GCTA' -> 'CGAU'

@@ -7,6 +7,7 @@ use Kata\RnaTranscription;
 
 class RnaTranscriptionTest extends TestCase
 {
+     /** @var \Kata\RnaTranscription $rnaTranscription */
     private $rnaTranscription;
 
     protected function setUp(): void
@@ -14,5 +15,8 @@ class RnaTranscriptionTest extends TestCase
         $this->rnaTranscription = new RnaTranscription();
     }
 
-
+    public function testDnaStrandWithGNucleotideIsTransformedInRnaNucleotideC(): void
+    {
+        $this->assertSame('C', $this->rnaTranscription->transcribe('G'));
+    }
 }
