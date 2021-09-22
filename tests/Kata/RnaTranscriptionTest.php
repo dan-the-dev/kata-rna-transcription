@@ -15,8 +15,13 @@ class RnaTranscriptionTest extends TestCase
         $this->rnaTranscription = new RnaTranscription();
     }
 
-    public function testDnaStrandWithGNucleotideIsTransformedInRnaNucleotideC(): void
+    public function testDnaStrandWithDnaNucleotideGIsTransformedInRnaNucleotideC(): void
     {
         $this->assertSame('C', $this->rnaTranscription->transcribe('G'));
+    }
+
+    public function testDnaStrandWithDnaNucleotideCIsTransformedInRnaNucleotideG(): void
+    {
+        $this->assertSame('G', $this->rnaTranscription->transcribe('C'));
     }
 }
