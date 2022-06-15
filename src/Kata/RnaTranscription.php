@@ -4,7 +4,7 @@ namespace Kata;
 
 class RnaTranscription
 {
-    public function handle(array $dnaStrand): array
+    public function fromDnaStrand(array $dnaStrand): array
     {
         return array();
     }
