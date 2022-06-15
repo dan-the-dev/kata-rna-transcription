@@ -16,8 +16,8 @@ class RnaTranscriptionTest extends TestCase
 
     public function testItHandleEmptyStrand(): void
     {
-        $actual = $this->rnaTranscription->fromDnaStrand([]);
+        $actual = $this->rnaTranscription->fromDnaStrand(new DnaStrand([]));
 
-        $this->assertEquals([], $actual);
+        $this->assertEquals(new RnaStrand([]), $actual);
     }
 }
