@@ -9,6 +9,9 @@ class RnaTranscription
         if ($dnaStrand->isEmpty()) {
             return new RnaStrand([]);
         }
+        if ($dnaStrand->head() === 'T') {
+            return new RnaStrand(['A']);
+        }
         if ($dnaStrand->head() === 'C') {
             return new RnaStrand(['G']);
         }
