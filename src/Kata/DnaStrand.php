@@ -17,7 +17,7 @@ final class DnaStrand
         return $this->nucleotides;
     }
 
-    public function empty(): bool
+    public function isEmpty(): bool
     {
         return empty($this->nucleotides);
     }
