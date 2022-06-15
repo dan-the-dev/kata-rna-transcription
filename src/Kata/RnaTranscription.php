@@ -6,6 +6,9 @@ class RnaTranscription
 {
     public function fromDnaStrand(DnaStrand $dnaStrand): RnaStrand
     {
-        return new RnaStrand([]);
+        if ($dnaStrand->empty()) {
+            return new RnaStrand([]);
+        }
+        return new RnaStrand(['C']);
     }
 }
