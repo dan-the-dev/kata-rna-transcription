@@ -56,4 +56,16 @@ class RnaTranscriptionTest extends TestCase
 
         $this->assertEquals([ RnaNucleotide::U ], $actual->all());
     }
+
+    public function testItHandleMultipleCompleteStrada(): void
+    {
+        $actual = $this->rnaTranscription->fromDnaStrand(new DnaStrand([
+            DnaNucleotide::A, DnaNucleotide::G, DnaNucleotide::C, DnaNucleotide::T
+        ]));
+
+        $this->assertEquals([
+            RnaNucleotide::U, RnaNucleotide::C, RnaNucleotide::G, RnaNucleotide::A
+        ], $actual->all());
+    }
+
 }

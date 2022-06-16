@@ -13,6 +13,11 @@ final class DnaStrand
         $this->nucleotides = $nucleotides;
     }
 
+    public function all(): array
+    {
+        return $this->nucleotides;
+    }
+
     public function isEmpty(): bool
     {
         return empty($this->nucleotides);

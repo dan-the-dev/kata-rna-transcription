@@ -10,33 +10,27 @@ class RnaTranscription
             return new RnaStrand([]);
         }
 
-        $dnaNucleotide = $dnaStrand->head();
+        $allDnaNucleotides = $dnaStrand->all();
+        $allRnaNucleotides = array_map(function (DnaNucleotide $dnaNucleotide): RnaNucleotide {
+            return $this->transcribeRnaNucleotide($dnaNucleotide);
+        }, $allDnaNucleotides);
 
-        $rnaNucleotide = $this->transcribeRnaNucleotide($dnaNucleotide);
-
-        return new RnaStrand([
-            $rnaNucleotide
-        ]);
+        return new RnaStrand($allRnaNucleotides);
     }
 
-    /**
-     * @param DnaNucleotide $dnaNucleotide
-     * @return RnaNucleotide
-     */
     protected function transcribeRnaNucleotide(DnaNucleotide $dnaNucleotide): RnaNucleotide
     {
         if ($dnaNucleotide === DnaNucleotide::G) {
-            $rnaNucleotide = RnaNucleotide::C;
+            return RnaNucleotide::C;
         }
         if ($dnaNucleotide === DnaNucleotide::C) {
-            $rnaNucleotide = RnaNucleotide::G;
+            return RnaNucleotide::G;
         }
         if ($dnaNucleotide === DnaNucleotide::T) {
-            $rnaNucleotide = RnaNucleotide::A;
+            return RnaNucleotide::A;
         }
         if ($dnaNucleotide === DnaNucleotide::A) {
-            $rnaNucleotide = RnaNucleotide::U;
+            return RnaNucleotide::U;
         }
-        return $rnaNucleotide;
     }
 }
