@@ -9,18 +9,15 @@ class RnaTranscription
         if ($dnaStrand->isEmpty()) {
             return new RnaStrand([]);
         }
+        $rnaNucleotide = RnaNucleotide::C;
         if ($dnaStrand->head() === DnaNucleotide::T) {
-            return new RnaStrand([
-                RnaNucleotide::A
-            ]);
+            $rnaNucleotide = RnaNucleotide::A;
         }
         if ($dnaStrand->head() === DnaNucleotide::C) {
-            return new RnaStrand([
-                RnaNucleotide::G
-            ]);
+            $rnaNucleotide = RnaNucleotide::G;
         }
         return new RnaStrand([
-            RnaNucleotide::C
+            $rnaNucleotide
         ]);
     }
 }
