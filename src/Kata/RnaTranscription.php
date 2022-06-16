@@ -26,11 +26,14 @@ class RnaTranscription
     protected function transcribeRnaNucleotide(DnaNucleotide $dnaNucleotide): RnaNucleotide
     {
         $rnaNucleotide = RnaNucleotide::C;
+        if ($dnaNucleotide === DnaNucleotide::C) {
+            $rnaNucleotide = RnaNucleotide::G;
+        }
         if ($dnaNucleotide === DnaNucleotide::T) {
             $rnaNucleotide = RnaNucleotide::A;
         }
-        if ($dnaNucleotide === DnaNucleotide::C) {
-            $rnaNucleotide = RnaNucleotide::G;
+        if ($dnaNucleotide === DnaNucleotide::A) {
+            $rnaNucleotide = RnaNucleotide::U;
         }
         return $rnaNucleotide;
     }

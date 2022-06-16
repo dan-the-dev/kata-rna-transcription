@@ -47,4 +47,13 @@ class RnaTranscriptionTest extends TestCase
 
         $this->assertEquals([ RnaNucleotide::A ], $actual->all());
     }
+
+    public function testItHandleSingleNucleotideA(): void
+    {
+        $actual = $this->rnaTranscription->fromDnaStrand(new DnaStrand([
+            DnaNucleotide::A
+        ]));
+
+        $this->assertEquals([ RnaNucleotide::U ], $actual->all());
+    }
 }
