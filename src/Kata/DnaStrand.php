@@ -5,7 +5,7 @@ namespace Kata;
 
 final class DnaStrand
 {
-    /** @var array<string> */
+    /** @var array<DnaNucleotide> */
     private array $nucleotides;
 
     public function __construct(array $nucleotides)
@@ -18,7 +18,7 @@ final class DnaStrand
         return empty($this->nucleotides);
     }
 
-    public function head(): string
+    public function head(): DnaNucleotide
     {
         return $this->nucleotides[0];
     }

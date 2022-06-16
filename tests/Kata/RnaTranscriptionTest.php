@@ -23,22 +23,28 @@ class RnaTranscriptionTest extends TestCase
 
     public function testItHandleSingleNucleotideG(): void
     {
-        $actual = $this->rnaTranscription->fromDnaStrand(new DnaStrand(['G']));
+        $actual = $this->rnaTranscription->fromDnaStrand(new DnaStrand([
+            DnaNucleotide::G
+        ]));
 
-        $this->assertEquals(new RnaStrand(['C']), $actual);
+        $this->assertEquals([ RnaNucleotide::C ], $actual->all());
     }
 
     public function testItHandleSingleNucleotideC(): void
     {
-        $actual = $this->rnaTranscription->fromDnaStrand(new DnaStrand(['C']));
+        $actual = $this->rnaTranscription->fromDnaStrand(new DnaStrand([
+            DnaNucleotide::C
+        ]));
 
-        $this->assertEquals(new RnaStrand(['G']), $actual);
+        $this->assertEquals([ RnaNucleotide::G ], $actual->all());
     }
 
     public function testItHandleSingleNucleotideT(): void
     {
-        $actual = $this->rnaTranscription->fromDnaStrand(new DnaStrand(['T']));
+        $actual = $this->rnaTranscription->fromDnaStrand(new DnaStrand([
+            DnaNucleotide::T
+        ]));
 
-        $this->assertEquals(new RnaStrand(['A']), $actual);
+        $this->assertEquals([ RnaNucleotide::A ], $actual->all());
     }
 }

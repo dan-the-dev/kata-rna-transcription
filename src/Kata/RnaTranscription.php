@@ -9,12 +9,18 @@ class RnaTranscription
         if ($dnaStrand->isEmpty()) {
             return new RnaStrand([]);
         }
-        if ($dnaStrand->head() === 'T') {
-            return new RnaStrand(['A']);
+        if ($dnaStrand->head() === DnaNucleotide::T) {
+            return new RnaStrand([
+                RnaNucleotide::A
+            ]);
         }
-        if ($dnaStrand->head() === 'C') {
-            return new RnaStrand(['G']);
+        if ($dnaStrand->head() === DnaNucleotide::C) {
+            return new RnaStrand([
+                RnaNucleotide::G
+            ]);
         }
-        return new RnaStrand(['C']);
+        return new RnaStrand([
+            RnaNucleotide::C
+        ]);
     }
 }
