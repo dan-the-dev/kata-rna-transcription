@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Kata;
 
+use Closure;
+
 final class DnaStrand
 {
     /** @var array<DnaNucleotide> */
@@ -13,9 +15,9 @@ final class DnaStrand
         $this->nucleotides = $nucleotides;
     }
 
-    public function all(): array
+    public function map(Closure $callback): array
     {
-        return $this->nucleotides;
+        return array_map($callback, $this->nucleotides);
     }
 
     public function isEmpty(): bool
@@ -23,8 +25,4 @@ final class DnaStrand
         return empty($this->nucleotides);
     }
 
-    public function head(): DnaNucleotide
-    {
-        return $this->nucleotides[0];
-    }
 }

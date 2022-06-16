@@ -10,10 +10,9 @@ class RnaTranscription
             return new RnaStrand([]);
         }
 
-        $allDnaNucleotides = $dnaStrand->all();
-        $allRnaNucleotides = array_map(function (DnaNucleotide $dnaNucleotide): RnaNucleotide {
+        $allRnaNucleotides = $dnaStrand->map(function (DnaNucleotide $dnaNucleotide): RnaNucleotide {
             return $this->transcribeRnaNucleotide($dnaNucleotide);
-        }, $allDnaNucleotides);
+        });
 
         return new RnaStrand($allRnaNucleotides);
     }
