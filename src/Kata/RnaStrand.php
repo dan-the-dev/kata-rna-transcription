@@ -13,13 +13,19 @@ final class RnaStrand
         $this->nucleotides = $nucleotides;
     }
 
+    public static function fromDnaStrand(DnaStrand $dnaStrand): self
+    {
+
+        $allRnaNucleotides = $dnaStrand->map(function (DnaNucleotide $dnaNucleotide): RnaNucleotide {
+            return RnaNucleotide::fromDnaNucleotide($dnaNucleotide);
+        });
+
+        return new RnaStrand($allRnaNucleotides);
+    }
+
     public function all(): array
     {
         return $this->nucleotides;
     }
 
-    public function toString(): string
-    {
-        return implode('', $this->nucleotides);
-    }
 }

@@ -20,9 +20,4 @@ final class DnaStrand
         return array_map($callback, $this->nucleotides);
     }
 
-    public function isEmpty(): bool
-    {
-        return empty($this->nucleotides);
-    }
-
 }
