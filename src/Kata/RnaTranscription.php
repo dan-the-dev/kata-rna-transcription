@@ -4,8 +4,8 @@ namespace Kata;
 
 class RnaTranscription
 {
-    public function handle(DnaNucleotide $dnaNucleotide): string
+    public function handle(DnaNucleotide $dnaNucleotide): RnaNucleotide
     {
-        return 'C';
+        return new RnaNucleotide('C');
     }
 }
