@@ -4,7 +4,7 @@ namespace Kata;
 
 class RnaTranscription
 {
-    public function handle(): string
+    public function handle(DnaNucleotide $dnaNucleotide): string
     {
         return 'C';
     }

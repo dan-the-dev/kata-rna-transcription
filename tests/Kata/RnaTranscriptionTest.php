@@ -16,7 +16,8 @@ class RnaTranscriptionTest extends TestCase
 
     public function testItTranscribeDnaStrandWithSingleNucleotideG(): void
     {
-        $actual = $this->rnaTranscription->handle('G');
+        $dnaNucleotide = new DnaNucleotide('G');
+        $actual = $this->rnaTranscription->handle($dnaNucleotide);
         $this->assertEquals('C', $actual);
     }
 
