@@ -6,7 +6,7 @@ class RnaTranscription
 {
     public function handle(DnaNucleotide $dnaNucleotide): RnaNucleotide
     {
-        if ($dnaNucleotide->toString() === 'C') {
+        if ($dnaNucleotide->equalsTo(new DnaNucleotide('C'))) {
             return new RnaNucleotide('G');
         }
         return new RnaNucleotide('C');

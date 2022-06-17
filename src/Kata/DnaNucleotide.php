@@ -16,4 +16,9 @@ final class DnaNucleotide
     {
         return $this->value;
     }
+
+    public function equalsTo(DnaNucleotide $anotherDnaNucleotide): bool
+    {
+        return $this->value === $anotherDnaNucleotide->value;
+    }
 }
