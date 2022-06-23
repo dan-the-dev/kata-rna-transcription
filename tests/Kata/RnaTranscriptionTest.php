@@ -14,8 +14,9 @@ class RnaTranscriptionTest extends TestCase
         $this->rnaTranscription = new RnaTranscription();
     }
 
-    public function testShallPass(): void
+    public function test123(): void
     {
-        $this->assertEquals(1, 1);
+        $actual = $this->rnaTranscription->handle('G');
+        $this->assertEquals('C', $actual);
     }
 }
