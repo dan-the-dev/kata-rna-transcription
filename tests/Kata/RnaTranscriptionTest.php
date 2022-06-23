@@ -18,9 +18,4 @@ class RnaTranscriptionTest extends TestCase
     {
         $this->assertEquals(1, 1);
     }
-
-    public function testHandleReturnTrue(): void
-    {
-        $this->assertEquals(true, $this->rnaTranscription->handle());
-    }
 }
