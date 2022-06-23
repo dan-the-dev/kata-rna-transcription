@@ -2,6 +2,8 @@
 
 namespace Kata;
 
+use Exception;
+use http\Exception\RuntimeException;
 use PHPUnit\Framework\TestCase;
 use Kata\RnaTranscription;
 
@@ -40,6 +42,15 @@ class RnaTranscriptionTest extends TestCase
         $dnaNucleotide = new DnaNucleotide('A');
         $actual = $this->rnaTranscription->handle($dnaNucleotide);
         $this->assertEquals(new RnaNucleotide('U'), $actual);
+    }
+
+    public function testItThrowsExceptionWhenDnaNucleotideIsWrong(): void
+    {
+        $dnaNucleotide = new DnaNucleotide('Z');
+
+        $this->expectException(DnaNucleotideUnknownException::class);
+
+        $this->rnaTranscription->handle($dnaNucleotide);
     }
 
 }

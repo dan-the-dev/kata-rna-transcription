@@ -18,5 +18,6 @@ class RnaTranscription
         if ($dnaNucleotide->equalsTo(new DnaNucleotide('G'))) {
             return new RnaNucleotide('C');
         }
+        throw new DnaNucleotideUnknownException();
     }
 }
