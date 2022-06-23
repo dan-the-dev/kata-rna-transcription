@@ -3,7 +3,6 @@
 namespace Kata;
 
 use PHPUnit\Framework\TestCase;
-use Kata\RnaTranscription;
 
 class RnaTranscriptionTest extends TestCase
 {
@@ -14,9 +13,9 @@ class RnaTranscriptionTest extends TestCase
         $this->rnaTranscription = new RnaTranscription();
     }
 
-    public function test123(): void
+    public function testItTranscribeDnaStringWithGToRnaC(): void
     {
-        $actual = $this->rnaTranscription->handle('G');
+        $actual = $this->rnaTranscription->handle(new DnaString('G'));
         $this->assertEquals('C', $actual);
     }
 }
